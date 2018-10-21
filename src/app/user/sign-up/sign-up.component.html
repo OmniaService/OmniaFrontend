@@ -1,0 +1,25 @@
+<form class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+  <div class="row">
+    <div class="input-field col s6">
+      <input class="validate" type="text" name="username" #username="ngModel" [(ngModel)]="user.username" required>
+      <label>Username</label>
+      <span class="helper-text" data-error="Required field!"></span>
+    </div>
+    <div class="input-field col s6 validate">
+      <input class="validate" type="password" name="password" #password="ngModel" [(ngModel)]="user.password" required minlength="6">
+      <label>Password</label>
+      <span class="helper-text" [attr.data-error]="password.errors!=null?(password.errors.required?'Required field!':'Minimum 6 characters needed!'):''"></span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <input type="text" name="nickname" #nickname="ngModel" [(ngModel)]="user.nickname">
+      <label>Nickname</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
+    </div>
+  </div>
+</form>
