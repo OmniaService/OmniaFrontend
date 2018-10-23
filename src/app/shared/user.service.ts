@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Response } from '@angular/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { User, LoginAuth } from './user.model';
 
@@ -17,15 +15,27 @@ export class UserService {
       username: user.username,
       password: user.password,
       nickname: user.nickname,
-      role: "USER"
+      role: 'USER'
     }
-    return this.http.post(this.rootUrl + '/auth/save/', body);
+    var reqHeader = new HttpHeaders({'No-Auth':'True'});
+    return this.http.post(this.rootUrl + '/auth/save/', body, {headers : reqHeader});
   }
+
+  getUsers(){   
+    return this.http.get(this.rootUrl + '/users/', {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
+    });
+  }
+
   userAuthentication(username, password){   
   const body: LoginAuth = {
       username: username,
       password: password
     }
-    return this.http.post(this.rootUrl + '/auth', body);
+    return this.http.post(this.rootUrl + '/auth/', body, {
+      headers: new HttpHeaders({'Content-Type':'application/json','No-Auth':'True'}),
+      responseType: 'text'
+   });
   }
+
 }
