@@ -18,7 +18,7 @@ export class UserService {
       role: 'USER'
     }
     var reqHeader = new HttpHeaders({'No-Auth':'True'});
-    return this.http.post(this.rootUrl + '/auth/save/', body, {headers : reqHeader});
+    return this.http.post(this.rootUrl + '/users/', body, {headers : reqHeader});
   }
 
   getUsers(){   
