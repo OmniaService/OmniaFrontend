@@ -1,31 +1,16 @@
-<nav>
-
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo center">
-      <i class="material-icons">cloud</i>
-    </a>
-    <ul id="nav-mobile" class="right hide-on-low-and-down">
-      <li>
-        <a (click)="Logout()">
-          Logout
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
 <div class="row" *ngFor="let user of users">
   <div class="col s12 m8">
     <div class="card">
       <div class="card-content">
-          <span>Username : {{ user.username }}</span>
-          <br>
-          <span>password : {{ user.password }}</span>
-          <br>
-          <span>nickname : {{ user.nickname }}</span>
-          <br>
-          <span>role : {{ user.role }}</span>
-          <br>
+        <span>Username : {{ user.username }}</span>
+        <br>
+        <span>password : {{ user.password }}</span>
+        <br>
+        <span>nickname : {{ user.nickname }}</span>
+        <br>
+        <span>role : {{ user.role }}</span>
+        <br>
       </div>
     </div>
-  </div>  
+  </div>
 </div>

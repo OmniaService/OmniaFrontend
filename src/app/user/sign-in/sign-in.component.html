@@ -1,23 +1,19 @@
-<form #loginForm="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(username.value, password.value)">
-  <div class="row">
-    <div class="input-field col s12">
-      <i class="material-icons prefix">
-        account_circle
-      </i>
-      <input type="text" name="username" #username ngModel placeholder="username" required />
-    </div>
+<form #loginForm="ngForm" class="p-4" (ngSubmit)="OnSubmit(username.value, password.value)">
+  <div class="form-group">
+    <i class="material-icons prefix m-1" style="font-size:30px; vertical-align: middle;">
+      account_circle
+    </i>
+    <label class="p-1" for="username">Username:</label>
+    <input class="form-control p-1 m-1" type="text" id="username" name="username" #username ngModel placeholder="username"
+      required />
   </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <i class="material-icons prefix">
-        vpn_key
-      </i>
-      <input type="password" name="password" #password ngModel placeholder="password" required />
-    </div>
+  <div class="form-group">
+    <i class="material-icons prefix m-1" style="font-size:30px; vertical-align: middle;">
+      vpn_key
+    </i>
+    <label class="p-1" for="password">Password:</label>
+    <input class="form-control p-1 m-1" type="password" name="password" id="password" #password ngModel placeholder="password"
+      required />
   </div>
-  <div class="row">
-      <div class="input-field col s12">
-        <button [disabled]="!loginForm.valid" class="btn-large btn-submit" type="submit">Login</button>
-      </div>
-    </div>
+  <button [disabled]="!loginForm.valid" class="btn btn-primary" type="submit">Login</button>
 </form>

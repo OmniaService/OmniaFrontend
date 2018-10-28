@@ -15,6 +15,9 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { NavComponent } from './nav/nav.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     SignUpComponent,
     UserComponent,
     SignInComponent,
-    HomeComponent
+    HomeComponent,
+    NavComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

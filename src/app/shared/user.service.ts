@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { User, LoginAuth } from './user.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class UserService {
 
+  public logedin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   readonly rootUrl = 'http://localhost:12000';
 
   constructor(private http: HttpClient) { }
@@ -36,6 +38,15 @@ export class UserService {
       headers: new HttpHeaders({'Content-Type':'application/json','No-Auth':'True'}),
       responseType: 'text'
    });
+  }
+
+  changeLoginStatus(flag : boolean){
+    this.logedin.next(flag);
+    console.log(this.logedin.value);
+  }
+
+  getLoginStatus(){
+    return this.logedin.asObservable();
   }
 
 }
