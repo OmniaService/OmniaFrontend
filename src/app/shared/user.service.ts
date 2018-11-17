@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import 'rxjs/add/operator/map';
 import { User, LoginAuth } from './user.model';
 import { BehaviorSubject } from 'rxjs';
 
@@ -42,7 +41,6 @@ export class UserService {
 
   changeLoginStatus(flag : boolean){
     this.logedin.next(flag);
-    console.log(this.logedin.value);
   }
 
   getLoginStatus(){
