@@ -44,6 +44,7 @@ user: User;
       }
     }, (error: any) => {
       this.toastr.error('Registration failed');
+      console.log(error);
     });
   }
 
