@@ -47,11 +47,12 @@ table {
 /* ### GLOBAL STYLES ### */
 
 .bodyBG {
-    background-color: #ddd;
+    background-color: #222;
+    color: #ccc;
 }
 
 .containerRow {
-    border: 1px solid black;
+    border: 1px solid #999;
 
 }
 

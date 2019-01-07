@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class UserService {
 
   public logedin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  readonly rootUrl = 'http://localhost:12000';
+  readonly rootUrl = 'http://35.228.30.131:12000';
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +18,7 @@ export class UserService {
       nickname: user.nickname,
       role: 'USER'
     }
-    var reqHeader = new HttpHeaders({'No-Auth':'True'});
+    var reqHeader = new HttpHeaders({'Content-Type':'application/json','No-Auth':'True'});
     return this.http.post(this.rootUrl + '/users/', body, {headers : reqHeader});
   }
 
