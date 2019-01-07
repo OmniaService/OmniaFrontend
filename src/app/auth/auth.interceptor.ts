@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpInterceptor, HttpHandler, HttpEvent, HttpRequest } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
-import 'rxjs/add/operator/do';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor{
@@ -20,12 +20,12 @@ export class AuthInterceptor implements HttpInterceptor{
                 headers: req.headers.set('Authorization', localStorage.getItem('Token'))
             });
         return next.handle(clonedreq)
-        .do(succ => {},
+        .pipe(tap(succ => {},
             err => {
                 if(err.status === 401)
                     this.router.navigateByUrl('/login')
                 }
-            );
+            ));
         } else  {
             this.router.navigateByUrl('/login');
         }

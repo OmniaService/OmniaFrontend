@@ -1,3 +1,4 @@
+<div class="col-8 col-lg-4 offset-lg-4 offset-2 col-sm-12 offset-sm-0" >
 <form #loginForm="ngForm" class="p-4" (ngSubmit)="OnSubmit(username.value, password.value)">
   <div class="form-group">
     <i class="material-icons prefix m-1" style="font-size:30px; vertical-align: middle;">
@@ -17,3 +18,4 @@
   </div>
   <button [disabled]="!loginForm.valid" class="btn btn-primary" type="submit">Login</button>
 </form>
+</div>
